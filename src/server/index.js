@@ -3,6 +3,24 @@ const express = require('express')
 const cors = require('cors')
 const mockAPIResponse = require('./mockAPI.js')
 
+var aylien = require("aylien_textapi");
+const dotenv = require('dotenv');
+dotenv.config();
+console.log(`Your API key is ${process.env.API_KEY}`);
+
+var aylienAPI = new aylien({
+    application_id: process.env.API_ID,
+    application_key: process.env.API_KEY
+    });
+
+    aylienAPI.sentiment({
+        'text': 'John is a very good football player!'
+      }, function(error, response) {
+        if (error === null) {
+          console.log(response);
+        }
+      });
+
 const app = express()
 
 app.use(express.static('dist'))
