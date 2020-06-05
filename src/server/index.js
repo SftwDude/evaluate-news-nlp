@@ -11,15 +11,7 @@ console.log(`Your API key is ${process.env.API_KEY}`);
 var aylienAPI = new aylien({
     application_id: process.env.API_ID,
     application_key: process.env.API_KEY
-    });
-
-    aylienAPI.sentiment({
-        'text': 'John is a very good football player!'
-      }, function(error, response) {
-        if (error === null) {
-          console.log(response);
-        }
-      });
+});
 
 const app = express()
 
@@ -40,3 +32,16 @@ app.listen(8081, function () {
 app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
+
+app.get('/sentiment', function (req, res) {
+    console.log(`sentiment called req.query.url =  ${req.query.url}`)
+    aylienAPI.sentiment({
+        'url': req.query.url
+    }, function (error, response) {
+        if (error === null) {
+            console.log(response);
+            res.send(response);
+        }
+    });
+})
+
