@@ -10,3 +10,26 @@ input {
     line-height: 16px;
     margin: 10px 0;
 }
+#url + span {
+    position: relative;
+  }
+  
+  #url + span::before {
+    position: absolute;
+    right: -20px;
+    top: 5px;
+  }
+  
+  #url:invalid {
+    border: 2px solid red;
+  }
+  
+  #url:invalid + span::before {
+    content: '✖';
+    color: red;
+  }
+  
+  #url:valid + span::before {
+    content: '✓';
+    color: green;
+  }
