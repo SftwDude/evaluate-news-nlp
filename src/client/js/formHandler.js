@@ -1,3 +1,5 @@
+//import {updateFormResult } from './js/updateFormResults'
+
 function handleSubmit(event) {
     event.preventDefault()
 
@@ -17,7 +19,8 @@ function handleSubmit(event) {
             .then(res => res.json())
             .then(function (res) {
                 console.log(res);
-                document.getElementById('results').innerHTML = res.polarity;
+                Client.updateFormResult(res);
+                //document.getElementById('results').innerHTML = res.polarity;
             })
     }
     else {
