@@ -11,7 +11,7 @@
 
     <header>
         <div class="">
-            <img id="image"  alt="Sentiment">
+            <img id="image" alt="Sentiment">
         </div>
         <div class="">
             navigation
@@ -22,7 +22,7 @@
         <section>
             <form class="" onsubmit="return Client.handleSubmit(event)">
                 <div>
-                    <label for="furl">Article URL *:</label>
+                    <label for="url">Article URL *:</label>
                     <input id="url" type="url" name="input" value="" onblur="Client.validURL(this)"
                         placeholder="https://example.com" required spellcheck="false">
                     <span></span>
@@ -33,8 +33,19 @@
         </section>
 
         <section>
-            <strong>Form Results:</strong>
-            <div id="results"></div>
+            <h2><strong>Form Results:</strong></h2>
+            <div>
+                <label for="polarity">Polarity:</label>
+                <span id="polarity"></span>
+            </div>
+            <div>
+                <label for="subjectivity">Subjectivity:</label>
+                <span id="subjectivity"></span>
+            </div>
+            <div>
+                <label for="text">Text:</label>
+                <p id="text"></p>
+            </div>
         </section>
     </main>
 
